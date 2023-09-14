@@ -29,7 +29,6 @@ namespace ExpenseTracker
         public void FormMainMenu_Load(object sender, EventArgs e)
         {
             string welcomeString = "Welcome " + appController.userController.getNameByEmail(this.UserEmail);
-            //labelWelcome.Text = "Welcome" + appController.userController.getNameByEmail(this.UserEmail);
             labelWelcome.Text = welcomeString;
         }
 

@@ -4,6 +4,9 @@
     <Compile Update="Ui\ErrorForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Ui\FormCreateAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Ui\FormMainMenu.cs">
       <SubType>Form</SubType>
     </Compile>

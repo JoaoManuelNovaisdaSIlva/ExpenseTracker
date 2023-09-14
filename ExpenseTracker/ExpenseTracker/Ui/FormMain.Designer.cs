@@ -35,6 +35,7 @@
             textBoxPw = new TextBox();
             button1 = new Button();
             labelError = new Label();
+            buttonCreate = new Button();
             SuspendLayout();
             // 
             // label1
@@ -80,7 +81,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(350, 450);
+            button1.Location = new Point(413, 450);
             button1.Name = "button1";
             button1.Size = new Size(94, 29);
             button1.TabIndex = 5;
@@ -92,17 +93,28 @@
             // 
             labelError.AutoSize = true;
             labelError.ForeColor = Color.Red;
-            labelError.Location = new Point(335, 390);
+            labelError.Location = new Point(322, 390);
             labelError.Name = "labelError";
             labelError.Size = new Size(124, 20);
             labelError.TabIndex = 6;
             labelError.Text = "Data not inserted";
+            // 
+            // buttonCreate
+            // 
+            buttonCreate.Location = new Point(213, 450);
+            buttonCreate.Name = "buttonCreate";
+            buttonCreate.Size = new Size(124, 29);
+            buttonCreate.TabIndex = 7;
+            buttonCreate.Text = "Create Accout";
+            buttonCreate.UseVisualStyleBackColor = true;
+            buttonCreate.Click += buttonCreate_Click;
             // 
             // FormMain
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(782, 553);
+            Controls.Add(buttonCreate);
             Controls.Add(labelError);
             Controls.Add(button1);
             Controls.Add(textBoxPw);
@@ -126,5 +138,6 @@
         private TextBox textBoxPw;
         private Button button1;
         private Label labelError;
+        private Button buttonCreate;
     }
 }

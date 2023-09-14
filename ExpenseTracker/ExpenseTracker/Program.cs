@@ -17,6 +17,8 @@ namespace ExpenseTracker
 
             ApplicationConfiguration.Initialize();
             Application.Run(new FormMain(appController));
+            //Application.ExitThread();
+            Application.Exit();
         }
     }
 }
