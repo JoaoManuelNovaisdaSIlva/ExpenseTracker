@@ -1,3 +1,5 @@
+using ExpenseTracker.Controller;
+
 namespace ExpenseTracker
 {
     internal static class Program
@@ -10,8 +12,11 @@ namespace ExpenseTracker
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
+            AppController appController = new AppController();
+
+
             ApplicationConfiguration.Initialize();
-            Application.Run(new FormMain());
+            Application.Run(new FormMain(appController));
         }
     }
 }
