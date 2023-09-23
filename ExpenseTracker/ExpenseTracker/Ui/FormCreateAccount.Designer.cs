@@ -36,6 +36,7 @@
             textBoxPw = new TextBox();
             buttonBack = new Button();
             buttonCreate = new Button();
+            labelError = new Label();
             SuspendLayout();
             // 
             // label1
@@ -64,7 +65,6 @@
             label3.Size = new Size(73, 20);
             label3.TabIndex = 2;
             label3.Text = "Password:";
-            label3.Click += label3_Click;
             // 
             // textBoxEmail
             // 
@@ -95,6 +95,7 @@
             buttonBack.TabIndex = 6;
             buttonBack.Text = "Back";
             buttonBack.UseVisualStyleBackColor = true;
+            buttonBack.Click += buttonBack_Click;
             // 
             // buttonCreate
             // 
@@ -104,12 +105,24 @@
             buttonCreate.TabIndex = 7;
             buttonCreate.Text = "Create";
             buttonCreate.UseVisualStyleBackColor = true;
+            buttonCreate.Click += buttonCreate_Click;
+            // 
+            // labelError
+            // 
+            labelError.AutoSize = true;
+            labelError.ForeColor = Color.Red;
+            labelError.Location = new Point(268, 330);
+            labelError.Name = "labelError";
+            labelError.Size = new Size(179, 20);
+            labelError.TabIndex = 8;
+            labelError.Text = "Not enough data inserted";
             // 
             // FormCreateAccount
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(labelError);
             Controls.Add(buttonCreate);
             Controls.Add(buttonBack);
             Controls.Add(textBoxPw);
@@ -120,6 +133,7 @@
             Controls.Add(label1);
             Name = "FormCreateAccount";
             Text = "Create Account";
+            Load += FormCreateAccount_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -134,5 +148,6 @@
         private TextBox textBoxPw;
         private Button buttonBack;
         private Button buttonCreate;
+        private Label labelError;
     }
 }

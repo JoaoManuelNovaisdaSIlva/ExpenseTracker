@@ -1,4 +1,5 @@
 using ExpenseTracker.Controller;
+using ExpenseTracker.Ui;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -43,14 +44,18 @@ namespace ExpenseTracker
             }
             else
             {
-                ErrorFrom errorForm = new ErrorFrom();
-                errorForm.ShowDialog();
+                MessageBox.Show("Error when loggin in!");
+                //ErrorFrom errorForm = new ErrorFrom();
+                //errorForm.ShowDialog();
             }
         }
 
         private void buttonCreate_Click(object sender, EventArgs e)
         {
-
+            FormCreateAccount createAccount = new FormCreateAccount(this.appController);
+            this.Hide();
+            createAccount.ShowDialog();
+            this.Close();
         }
     }
 }

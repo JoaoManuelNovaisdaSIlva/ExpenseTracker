@@ -29,5 +29,14 @@ namespace ExpenseTracker.Controller
             }
             else return str;
         }
+
+        public string addNewUser(string email, string password, string name) {
+            bool result = user.addNewUser(email, password, name);
+            if (result)
+            {
+                return "Success creating new account! \n Go back to the login window to proceed.";
+            }
+            else return "Error creating account!";
+        }
     }
 }

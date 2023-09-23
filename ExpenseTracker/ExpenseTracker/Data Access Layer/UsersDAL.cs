@@ -35,7 +35,7 @@ namespace ExpenseTracker.Data_Access_Layer
                 connection.Open();
                 using (SqlCommand command = new SqlCommand("SELECT Name FROM Users WHERE Email=@Email", connection))
                 {
-                    command.Parameters.AddWithValue("@Email", email);
+                    command.Parameters.AddWithValue("@Email", email); // Parameters avoid SQL injections
                     object result = command.ExecuteScalar();
                     if (result != null)
                     {
@@ -44,6 +44,24 @@ namespace ExpenseTracker.Data_Access_Layer
                 }
             }
             return null; // Return null or handle missing data appropriately
+        }
+
+        public bool insertNewUser(string email, string password, string name)
+        {
+            using(SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using(SqlCommand command = new SqlCommand("INSERT INTO Users (Email, Name, Password) VALUES (@Email, @Name, @Password)", connection))
+                {
+                    command.Parameters.AddWithValue ("@Email", email); // Parameters avoid SQL injections
+                    command.Parameters.AddWithValue("@Name", name);
+                    command.Parameters.AddWithValue ("@Password", password);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    return rowsAffected > 0;
+                }
+            }
         }
 
         

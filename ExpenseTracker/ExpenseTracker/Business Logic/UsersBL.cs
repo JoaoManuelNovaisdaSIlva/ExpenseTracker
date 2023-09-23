@@ -37,5 +37,10 @@ namespace ExpenseTracker.Business_Logic
             UsersDAL users = new UsersDAL();
             return users.getNameByEmail(email);
         }
+
+        public bool addNewUser(string email, string password, string name) {
+            UsersDAL usersDAL = new UsersDAL();
+            return usersDAL.insertNewUser(email, password, name);
+        }
     }
 }
