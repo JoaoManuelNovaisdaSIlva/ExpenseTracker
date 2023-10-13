@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ExpenseTracker.Controller;
+using ExpenseTracker.Ui;
 
 namespace ExpenseTracker
 {
@@ -34,7 +35,7 @@ namespace ExpenseTracker
 
         private void buttonSpendings_Click(object sender, EventArgs e)
         {
-
+            FormSpendings formSpendings = new FormSpendings(this.UserEmail, this.appController);
         }
     }
 }

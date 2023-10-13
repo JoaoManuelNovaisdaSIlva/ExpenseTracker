@@ -38,6 +38,12 @@ namespace ExpenseTracker.Business_Logic
             return users.getNameByEmail(email);
         }
 
+        public int getUserIdByEmailService(string email)
+        {
+            UsersDAL users = new UsersDAL();
+            return users.getUserIdByEmail(email);
+        }
+
         public bool addNewUser(string email, string password, string name) {
             UsersDAL usersDAL = new UsersDAL();
             return usersDAL.insertNewUser(email, password, name);

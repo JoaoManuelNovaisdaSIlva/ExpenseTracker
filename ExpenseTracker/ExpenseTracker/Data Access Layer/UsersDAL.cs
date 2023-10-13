@@ -13,19 +13,19 @@ namespace ExpenseTracker.Data_Access_Layer
     internal class UsersDAL
     {
        static string connectionString = ConfigurationManager.ConnectionStrings["ExpenseTrackerDB"].ConnectionString;
-       SqlConnection sqlConnection;
 
         public DataTable getUsers()
         {
-            sqlConnection = new SqlConnection(connectionString);
-
-            using(SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Users", sqlConnection))
+            using(SqlConnection sqlConnection = new SqlConnection(connectionString))
             {
-                DataTable queryOut = new DataTable();
-                adapter.Fill(queryOut);
-                return queryOut;
-            }
-            
+                sqlConnection.Open();
+                using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Users", sqlConnection))
+                {
+                    DataTable queryOut = new DataTable();
+                    adapter.Fill(queryOut);
+                    return queryOut;
+                }
+            } 
         }
 
         public string getNameByEmail(string email)
@@ -46,24 +46,58 @@ namespace ExpenseTracker.Data_Access_Layer
             return null; // Return null or handle missing data appropriately
         }
 
-        public bool insertNewUser(string email, string password, string name)
+        public int getUserIdByEmail(string email)
         {
-            using(SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection( connectionString))
             {
                 connection.Open();
-                using(SqlCommand command = new SqlCommand("INSERT INTO Users (Email, Name, Password) VALUES (@Email, @Name, @Password)", connection))
+                using (SqlCommand command = new SqlCommand("SELECT UserId FROM Users WHERE Email=@Email", connection))
                 {
-                    command.Parameters.AddWithValue ("@Email", email); // Parameters avoid SQL injections
-                    command.Parameters.AddWithValue("@Name", name);
-                    command.Parameters.AddWithValue ("@Password", password);
+                    command.Parameters.AddWithValue("@Email", email);
+                    object result = command.ExecuteScalar();
+                    if(result != null)
+                    {
+                        return (int)result;
+                    }
+                }
+            }
+            return -1;
+        }
 
-                    int rowsAffected = command.ExecuteNonQuery();
+        public bool insertNewUser(string email, string password, string name)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                // Check if a user with the same email already exists
+                using (SqlCommand checkCommand = new SqlCommand("SELECT COUNT(*) FROM Users WHERE Email = @Email", connection))
+                {
+                    checkCommand.Parameters.AddWithValue("@Email", email);
+                    int existingUserCount = (int)checkCommand.ExecuteScalar();
+
+                    if (existingUserCount > 0)
+                    {
+                        // A user with the same email already exists; handle this situation
+                        return false;
+                    }
+                }
+
+                // If there's no existing user with the same email, proceed with the insertion
+                using (SqlCommand insertCommand = new SqlCommand("INSERT INTO Users (Email, Name, Password) VALUES (@Email, @Name, @Password)", connection))
+                {
+                    insertCommand.Parameters.AddWithValue("@Email", email);
+                    insertCommand.Parameters.AddWithValue("@Name", name);
+                    insertCommand.Parameters.AddWithValue("@Password", password);
+
+                    int rowsAffected = insertCommand.ExecuteNonQuery();
 
                     return rowsAffected > 0;
                 }
             }
         }
 
-        
+
+
     }
 }

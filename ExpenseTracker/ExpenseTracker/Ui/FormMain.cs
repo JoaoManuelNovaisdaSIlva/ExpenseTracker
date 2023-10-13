@@ -45,8 +45,6 @@ namespace ExpenseTracker
             else
             {
                 MessageBox.Show("Error when loggin in!");
-                //ErrorFrom errorForm = new ErrorFrom();
-                //errorForm.ShowDialog();
             }
         }
 
