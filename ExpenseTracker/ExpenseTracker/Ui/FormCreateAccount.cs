@@ -30,8 +30,9 @@ namespace ExpenseTracker.Ui
         {
             this.Hide();
             FormMain formMain = new FormMain(this.appController);
+            formMain.FormClosed += (s, args) => this.Close();
             formMain.ShowDialog();
-            this.Close();
+            //this.Close();
         }
 
         private void buttonCreate_Click(object sender, EventArgs e)
@@ -46,7 +47,7 @@ namespace ExpenseTracker.Ui
                 return;
             }
 
-            MessageBox.Show(appController.userController.addNewUser(email, password, name));
+            MessageBox.Show(appController.getUserController().addNewUser(email, password, name));
         }
     }
 }

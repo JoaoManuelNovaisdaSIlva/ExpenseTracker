@@ -1,4 +1,5 @@
 ﻿using ExpenseTracker.Business_Logic;
+using ExpenseTracker.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,7 @@ namespace ExpenseTracker.Controller
             string str =  user.getUserByEmailService(email);
             if (str == null)
             {
-                return "ERROR: Name not found!";
+                throw new MissingDataException("The name of the user with this email: " + email + "was not found!");
             }
             else return str;
         }
@@ -33,7 +34,11 @@ namespace ExpenseTracker.Controller
         public int getIdByEmail(string email)
         {
             int id = user.getUserIdByEmailService(email);
-            return id;
+            if(id == -1)
+            {
+                throw new MissingDataException("User with email: " + email + "not found!");
+            }
+            else return id;
         }
 
         public string addNewUser(string email, string password, string name) {

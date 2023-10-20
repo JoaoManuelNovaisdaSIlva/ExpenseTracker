@@ -18,7 +18,12 @@ namespace ExpenseTracker.Controller
 
         public DataTable getExpensesOfUser(int userId)
         {
-            return expenses.getUserExpensesService(userId);
+            DataTable dt = new DataTable();
+            dt = expenses.getUserExpensesService(userId);
+            if(dt != null && dt.Rows.Count > 0)
+            {
+                return dt;
+            }else throw new MissingFieldException("The user: " +  userId + "doesn't have any expenses!");
         }
     }
 }

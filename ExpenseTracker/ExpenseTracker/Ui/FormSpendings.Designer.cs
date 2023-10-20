@@ -32,7 +32,6 @@
             buttonRight = new Button();
             labelMonth = new Label();
             label4 = new Label();
-            listBoxExpenses = new ListBox();
             labelIncome = new Label();
             labelExpense = new Label();
             label3 = new Label();
@@ -41,6 +40,8 @@
             buttonPlusIncome = new Button();
             buttonPlusExpense = new Button();
             buttonBack = new Button();
+            dataGridView1 = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // buttonLeft
@@ -80,15 +81,6 @@
             label4.Size = new Size(61, 20);
             label4.TabIndex = 3;
             label4.Text = "Income:";
-            // 
-            // listBoxExpenses
-            // 
-            listBoxExpenses.FormattingEnabled = true;
-            listBoxExpenses.ItemHeight = 20;
-            listBoxExpenses.Location = new Point(162, 240);
-            listBoxExpenses.Name = "listBoxExpenses";
-            listBoxExpenses.Size = new Size(427, 144);
-            listBoxExpenses.TabIndex = 4;
             // 
             // labelIncome
             // 
@@ -163,11 +155,24 @@
             buttonBack.UseVisualStyleBackColor = true;
             buttonBack.Click += buttonBack_Click;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(100, 226);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.RowTemplate.Height = 29;
+            dataGridView1.Size = new Size(594, 188);
+            dataGridView1.TabIndex = 13;
+            // 
             // FormSpendings
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(782, 553);
+            Controls.Add(dataGridView1);
             Controls.Add(buttonBack);
             Controls.Add(buttonPlusExpense);
             Controls.Add(buttonPlusIncome);
@@ -176,7 +181,6 @@
             Controls.Add(label3);
             Controls.Add(labelExpense);
             Controls.Add(labelIncome);
-            Controls.Add(listBoxExpenses);
             Controls.Add(label4);
             Controls.Add(labelMonth);
             Controls.Add(buttonRight);
@@ -184,6 +188,7 @@
             Name = "FormSpendings";
             Text = "Spendings";
             Load += FormSpendings_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -194,7 +199,6 @@
         private Button buttonRight;
         private Label labelMonth;
         private Label label4;
-        private ListBox listBoxExpenses;
         private Label labelIncome;
         private Label labelExpense;
         private Label label3;
@@ -203,5 +207,6 @@
         private Button buttonPlusIncome;
         private Button buttonPlusExpense;
         private Button buttonBack;
+        private DataGridView dataGridView1;
     }
 }

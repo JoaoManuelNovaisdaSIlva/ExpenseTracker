@@ -32,15 +32,16 @@ namespace ExpenseTracker
                 return;
             }
 
-            bool authentication = appController.userController.AuthenticateUser(email, pw);
+            bool authentication = appController.getUserController().AuthenticateUser(email, pw);
 
 
             if (authentication)
             {
-                FormMainMenu formMainMenu = new FormMainMenu(email, appController);
                 this.Hide();
+                FormMainMenu formMainMenu = new FormMainMenu(email, appController);
+                formMainMenu.FormClosed += (s, args) => this.Close();
                 formMainMenu.ShowDialog();
-                this.Close();
+                //this.Close();
             }
             else
             {
@@ -50,10 +51,11 @@ namespace ExpenseTracker
 
         private void buttonCreate_Click(object sender, EventArgs e)
         {
-            FormCreateAccount createAccount = new FormCreateAccount(this.appController);
             this.Hide();
+            FormCreateAccount createAccount = new FormCreateAccount(this.appController);
+            createAccount.FormClosed += (s, args) => this.Close();
             createAccount.ShowDialog();
-            this.Close();
+            //this.Close();
         }
     }
 }

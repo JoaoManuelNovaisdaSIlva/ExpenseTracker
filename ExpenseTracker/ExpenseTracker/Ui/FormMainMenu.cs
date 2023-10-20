@@ -29,13 +29,16 @@ namespace ExpenseTracker
 
         public void FormMainMenu_Load(object sender, EventArgs e)
         {
-            string welcomeString = "Welcome " + appController.userController.getNameByEmail(this.UserEmail);
+            string welcomeString = "Welcome " + appController.getUserController().getNameByEmail(this.UserEmail);
             labelWelcome.Text = welcomeString;
         }
 
         private void buttonSpendings_Click(object sender, EventArgs e)
         {
+            this.Hide();
             FormSpendings formSpendings = new FormSpendings(this.UserEmail, this.appController);
+            formSpendings.FormClosed += (s, args) => this.Close();
+            formSpendings.ShowDialog();
         }
     }
 }

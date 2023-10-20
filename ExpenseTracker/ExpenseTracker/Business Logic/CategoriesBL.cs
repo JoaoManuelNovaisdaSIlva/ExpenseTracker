@@ -1,5 +1,7 @@
-﻿using System;
+﻿using ExpenseTracker.Data_Access_Layer;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,5 +12,13 @@ namespace ExpenseTracker.Business_Logic
     {
         private int CategoriesId { get; set; }
         private string CategoriesName { get; set; }
+
+        public DataTable getCategoriesService()
+        {
+            CategoriesDAL categoriesDAL = new CategoriesDAL();
+            DataTable dataTable = new DataTable();
+            dataTable = categoriesDAL.getAllCategories();
+            return dataTable;
+        }
     }
 }
