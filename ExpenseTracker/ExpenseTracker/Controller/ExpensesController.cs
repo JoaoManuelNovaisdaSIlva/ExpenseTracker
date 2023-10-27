@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ExpenseTracker.Exceptions;
 
 namespace ExpenseTracker.Controller
 {
@@ -20,10 +21,7 @@ namespace ExpenseTracker.Controller
         {
             DataTable dt = new DataTable();
             dt = expenses.getUserExpensesService(userId);
-            if(dt != null && dt.Rows.Count > 0)
-            {
-                return dt;
-            }else throw new MissingFieldException("The user: " +  userId + "doesn't have any expenses!");
+            return dt;
         }
     }
 }

@@ -11,6 +11,7 @@ namespace ExpenseTracker.Controller
         private UserController userController;
         private ExpensesController expensesController;
         private CategoriesController categoriesController;
+        private IncomeController incomeController;
         
 
         public AppController()
@@ -18,12 +19,14 @@ namespace ExpenseTracker.Controller
             this.userController = new UserController();
             this.expensesController = new ExpensesController();
             this.categoriesController = new CategoriesController();
+            this.incomeController = new IncomeController();
         }
 
-        public AppController(UserController userController, ExpensesController expensesController, CategoriesController categoriesController) { 
+        public AppController(UserController userController, ExpensesController expensesController, CategoriesController categoriesController, IncomeController income) { 
             this.userController = userController;
             this.expensesController = expensesController;
             this.categoriesController = categoriesController;
+            this.incomeController = income;
         }
 
         public UserController getUserController()
@@ -38,7 +41,12 @@ namespace ExpenseTracker.Controller
 
         public CategoriesController getCategoriesController()
         {
-            return categoriesController;
+            return this.categoriesController;
+        }
+
+        public IncomeController getIncomeController()
+        {
+            return this.incomeController;
         }
     }
 }

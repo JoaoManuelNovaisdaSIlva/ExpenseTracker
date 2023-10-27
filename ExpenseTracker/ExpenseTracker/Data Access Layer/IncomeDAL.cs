@@ -21,15 +21,15 @@ namespace ExpenseTracker.Data_Access_Layer
                 using (SqlCommand command = new SqlCommand(
                     "SELECT SUM(amount) AS TotalIncome " +
                     "FROM Income " +
-                    "WHERE userId = @UserId " +
-                    "AND date = @Date;", connection))
+                    "WHERE User_Id = @UserId " +
+                    "AND Date = @Date;", connection))
                 {
                     command.Parameters.AddWithValue("@UserId", userId);
                     command.Parameters.AddWithValue("@Date", date);
 
                     object result = command.ExecuteScalar();
 
-                    if (result != null)
+                    if (result != DBNull.Value)
                     {
                         decimal totalIncome = Convert.ToDecimal(result);
                         return totalIncome;

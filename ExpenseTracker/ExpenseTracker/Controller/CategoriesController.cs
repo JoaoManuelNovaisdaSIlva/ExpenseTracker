@@ -27,7 +27,7 @@ namespace ExpenseTracker.Controller
             }
             else
             {
-                throw new MissingDataException("The data for the query: GetCategories is non existent!");
+                throw new MissingDataException("The data for the query: GetCategories is non existent!"); // Maybe if there are no categories users should add them
             }
         }
     }

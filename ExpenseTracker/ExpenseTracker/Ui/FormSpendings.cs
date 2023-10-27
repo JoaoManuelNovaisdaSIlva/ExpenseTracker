@@ -35,10 +35,16 @@ namespace ExpenseTracker.Ui
         public void UpdatePage(object sender, EventArgs e, DateTime date)
         {
             int idUser = appController.getUserController().getIdByEmail(email);
+            Decimal TotalSpendings = 0;
 
 
             DataTable expensesTable = appController.getExpensesController().getExpensesOfUser(idUser);
             DataTable categoriesTable = appController.getCategoriesController().getCategories();
+            if (expensesTable == null && expensesTable.Rows.Count <= 0)
+            {
+                emptyTable(sender, e, categoriesTable);
+                return;
+            }
 
             var filteredExpenses = expensesTable.AsEnumerable()
                 .Where(expenseRow =>
@@ -65,11 +71,38 @@ namespace ExpenseTracker.Ui
             foreach (var item in query)
             {
                 resultTable.Rows.Add(item.CategoryName, item.TotalAmount);
+                TotalSpendings += item.TotalAmount;
             }
 
             dataGridView1.DataSource = resultTable;
             dataGridView1.Columns["Total Amount Spent"].DefaultCellStyle.Format = "C";
 
+            Decimal monthIncome = appController.getIncomeController().getMonthsIncome(idUser, DateTime.Parse(labelMonth.Text));
+            if (monthIncome == -1)
+            {
+                labelIncome.Text = "No income";
+                labelBalance.Text = (0 - TotalSpendings).ToString();
+            }
+            else
+            {
+                labelIncome.Text = monthIncome.ToString();
+                labelBalance.Text = (monthIncome - TotalSpendings).ToString();
+            }
+            labelExpense.Text = TotalSpendings.ToString();
+        }
+
+        public void emptyTable(Object sender, EventArgs e, DataTable categories)
+        {
+            DataTable resultTable = new DataTable();
+            resultTable.Columns.Add("Category Name", typeof(string));
+            resultTable.Columns.Add("Total Amount Spent", typeof(decimal));
+
+            foreach(DataRow row in categories.Rows)
+            {
+                resultTable.Rows.Add(row["CategoryName"], 0);
+            }
+            dataGridView1.DataSource = resultTable;
+            dataGridView1.Columns["Total Amount Spent"].DefaultCellStyle.Format = "C";
         }
 
         private void buttonLeft_Click(object sender, EventArgs e)

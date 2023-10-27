@@ -21,10 +21,7 @@ namespace ExpenseTracker.Controller
         public decimal getMonthsIncome(int userId, DateTime date)
         {
             Decimal income = incomeBL.getMonthsIncomeService(userId, date);
-            if(income != -1)
-            {
-                return income;
-            }else throw new MissingDataException("The user: " +  userId + " has no income!");
+            return income; // returns -1 if user has no income
         }
            
     }
