@@ -97,7 +97,7 @@ namespace ExpenseTracker.Ui
             resultTable.Columns.Add("Category Name", typeof(string));
             resultTable.Columns.Add("Total Amount Spent", typeof(decimal));
 
-            foreach(DataRow row in categories.Rows)
+            foreach (DataRow row in categories.Rows)
             {
                 resultTable.Rows.Add(row["CategoryName"], 0);
             }
@@ -129,6 +129,17 @@ namespace ExpenseTracker.Ui
             FormMainMenu mainMenu = new FormMainMenu(this.email, this.appController);
             mainMenu.ShowDialog();
             this.Close();
+        }
+
+        private void buttonPlusIncome_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormTransaction transaction = new FormTransaction();
+        }
+
+        private void buttonPlusExpense_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

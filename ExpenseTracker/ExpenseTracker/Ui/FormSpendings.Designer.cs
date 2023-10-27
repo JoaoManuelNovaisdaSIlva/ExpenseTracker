@@ -135,6 +135,7 @@
             buttonPlusIncome.TabIndex = 10;
             buttonPlusIncome.Text = "Income +";
             buttonPlusIncome.UseVisualStyleBackColor = true;
+            buttonPlusIncome.Click += buttonPlusIncome_Click;
             // 
             // buttonPlusExpense
             // 
@@ -144,6 +145,7 @@
             buttonPlusExpense.TabIndex = 11;
             buttonPlusExpense.Text = "Expense +";
             buttonPlusExpense.UseVisualStyleBackColor = true;
+            buttonPlusExpense.Click += buttonPlusExpense_Click;
             // 
             // buttonBack
             // 
