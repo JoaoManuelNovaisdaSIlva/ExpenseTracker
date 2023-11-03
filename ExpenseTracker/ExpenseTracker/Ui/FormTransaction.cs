@@ -1,4 +1,5 @@
-﻿using ExpenseTracker.Controller;
+﻿using ExpenseTracker.Business_Logic;
+using ExpenseTracker.Controller;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,13 +15,18 @@ namespace ExpenseTracker.Ui
     partial class FormTransaction : Form
     {
         private AppController appController;
-        private string email;
-        public FormTransaction(string email, AppController appController)
+        private UsersBL user;
+        public FormTransaction(UsersBL user, AppController appController)
         {
             InitializeComponent();
 
             this.appController = appController;
-            this.email = email;
+            this.user = user;
+        }
+
+        private void FormTransaction_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

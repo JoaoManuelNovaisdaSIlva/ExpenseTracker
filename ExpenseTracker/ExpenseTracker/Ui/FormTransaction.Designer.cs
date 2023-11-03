@@ -117,6 +117,7 @@
             Controls.Add(dataGridView1);
             Name = "FormTransaction";
             Text = "Transaction";
+            Load += FormTransaction_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();

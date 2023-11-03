@@ -9,19 +9,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Linq;
+using ExpenseTracker.Business_Logic;
 
 namespace ExpenseTracker.Ui
 {
     partial class FormSpendings : Form
     {
         private AppController appController;
-        private string email;
-        public FormSpendings(string email, AppController appController)
+        private UsersBL user;
+        public FormSpendings(UsersBL user, AppController appController)
         {
             InitializeComponent();
 
             this.appController = appController;
-            this.email = email;
+            this.user = user;
         }
 
         private void FormSpendings_Load(object sender, EventArgs e)
@@ -34,7 +35,7 @@ namespace ExpenseTracker.Ui
 
         public void UpdatePage(object sender, EventArgs e, DateTime date)
         {
-            int idUser = appController.getUserController().getIdByEmail(email);
+            int idUser = this.user.getUserId();
             Decimal TotalSpendings = 0;
 
 
@@ -126,7 +127,7 @@ namespace ExpenseTracker.Ui
         private void buttonBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormMainMenu mainMenu = new FormMainMenu(this.email, this.appController);
+            FormMainMenu mainMenu = new FormMainMenu(this.user, this.appController);
             mainMenu.ShowDialog();
             this.Close();
         }
@@ -134,7 +135,7 @@ namespace ExpenseTracker.Ui
         private void buttonPlusIncome_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormTransaction transaction = new FormTransaction();
+            FormTransaction transaction = new FormTransaction(this.user, this.appController);
         }
 
         private void buttonPlusExpense_Click(object sender, EventArgs e)

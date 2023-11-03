@@ -16,8 +16,17 @@ namespace ExpenseTracker.Business_Logic
         private string password { get; set; }
         private string name { get; set; }
 
-        
-        public bool AuthenticationService(string email, string password)
+        public UsersBL() { }
+
+        public UsersBL(int userId, string email, string password, string name)
+        {
+            this.UserId = userId;
+            this.email = email;
+            this.password = password;
+            this.name = name;
+        }
+
+        public UsersBL AuthenticationService(string email, string password)
         {
             UsersDAL data = new UsersDAL();
             DataTable users = data.getUsers();
@@ -27,9 +36,9 @@ namespace ExpenseTracker.Business_Logic
                 string tableEmail = row["Email"].ToString();
                 string tablePw = row["Password"].ToString();
 
-                if (tableEmail == email && tablePw == password) return true;
+                if (tableEmail == email && tablePw == password) return new UsersBL(getUserIdByEmailService(email), email, password, getUserByEmailService(email));
             }
-            return false;
+            return null;
         }
 
         public string getUserByEmailService(string email)
@@ -48,5 +57,9 @@ namespace ExpenseTracker.Business_Logic
             UsersDAL usersDAL = new UsersDAL();
             return usersDAL.insertNewUser(email, password, name);
         }
+
+        public string getName() { return this.name; }
+
+        public int getUserId() { return this.UserId; }
     }
 }

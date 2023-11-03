@@ -16,7 +16,7 @@ namespace ExpenseTracker.Controller
         {
             this.user = new UsersBL();
         }
-        public bool AuthenticateUser(string email, string password)
+        public UsersBL AuthenticateUser(string email, string password)
         {
             return user.AuthenticationService(email, password);
         }

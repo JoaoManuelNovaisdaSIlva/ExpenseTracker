@@ -1,3 +1,4 @@
+using ExpenseTracker.Business_Logic;
 using ExpenseTracker.Controller;
 using ExpenseTracker.Ui;
 using System.Configuration;
@@ -32,13 +33,13 @@ namespace ExpenseTracker
                 return;
             }
 
-            bool authentication = appController.getUserController().AuthenticateUser(email, pw);
+            UsersBL user = appController.getUserController().AuthenticateUser(email, pw);
 
 
-            if (authentication)
+            if (user != null)
             {
                 this.Hide();
-                FormMainMenu formMainMenu = new FormMainMenu(email, appController);
+                FormMainMenu formMainMenu = new FormMainMenu(user, appController);
                 formMainMenu.FormClosed += (s, args) => this.Close();
                 formMainMenu.ShowDialog();
                 //this.Close();

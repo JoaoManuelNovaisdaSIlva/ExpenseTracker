@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ExpenseTracker.Business_Logic;
 using ExpenseTracker.Controller;
 using ExpenseTracker.Ui;
 
@@ -17,26 +18,26 @@ namespace ExpenseTracker
     partial class FormMainMenu : Form
     {
         private AppController appController;
-        private string UserEmail;
+        private UsersBL User;
 
-        public FormMainMenu(string email, AppController appController)
+        public FormMainMenu(UsersBL user, AppController appController)
         {
             InitializeComponent();
 
-            this.UserEmail = email;
+            this.User = user;
             this.appController = appController;
         }
 
         public void FormMainMenu_Load(object sender, EventArgs e)
         {
-            string welcomeString = "Welcome " + appController.getUserController().getNameByEmail(this.UserEmail);
+            string welcomeString = "Welcome " + this.User.getName();
             labelWelcome.Text = welcomeString;
         }
 
         private void buttonSpendings_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormSpendings formSpendings = new FormSpendings(this.UserEmail, this.appController);
+            FormSpendings formSpendings = new FormSpendings(User, this.appController);
             formSpendings.FormClosed += (s, args) => this.Close();
             formSpendings.ShowDialog();
         }

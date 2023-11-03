@@ -26,3 +26,4 @@ C:\Users\jmns2\Documents\GitHub\ExpenseTracker\ExpenseTracker\ExpenseTracker\obj
 C:\Users\jmns2\Documents\GitHub\ExpenseTracker\ExpenseTracker\ExpenseTracker\obj\Debug\net7.0-windows\ref\ExpenseTracker.dll
 C:\Users\jmns2\Documents\GitHub\ExpenseTracker\ExpenseTracker\ExpenseTracker\obj\Debug\net7.0-windows\ExpenseTracker.Ui.FormCreateAccount.resources
 C:\Users\jmns2\Documents\GitHub\ExpenseTracker\ExpenseTracker\ExpenseTracker\obj\Debug\net7.0-windows\ExpenseTracker.Ui.FormSpendings.resources
+C:\Users\jmns2\Documents\GitHub\ExpenseTracker\ExpenseTracker\ExpenseTracker\obj\Debug\net7.0-windows\ExpenseTracker.Ui.FormTransaction.resources
