@@ -19,5 +19,11 @@ namespace ExpenseTracker.Business_Logic
             IncomeDAL incomeDAL = new IncomeDAL();
             return incomeDAL.getMonthsIncome(userId, date);
         }
+
+        public bool addNewIncomeService(int userId, decimal amount, DateTime date)
+        {
+            IncomeDAL newIncome = new IncomeDAL();
+            return newIncome.addNewIncome(amount, userId, date);
+        }
     }
 }

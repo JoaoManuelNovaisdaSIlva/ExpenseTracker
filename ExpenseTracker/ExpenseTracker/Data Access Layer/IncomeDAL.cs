@@ -40,5 +40,23 @@ namespace ExpenseTracker.Data_Access_Layer
 
             }
         }
+
+        public bool addNewIncome(Decimal amount, int userId, DateTime date)
+        {
+            using(SqlConnection connection = new SqlConnection( connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("INSERT INTO Income (User_Id, Amount, Date) VALUES (@User_Id, @Amount, @Date)", connection))
+                {
+                    command.Parameters.AddWithValue("@User_Id", userId);
+                    command.Parameters.AddWithValue("@Amount", amount);
+                    command.Parameters.AddWithValue("Date", date);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    return rowsAffected > 0;
+                }
+            }
+        }
     }
 }

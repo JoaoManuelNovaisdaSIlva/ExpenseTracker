@@ -135,17 +135,17 @@ namespace ExpenseTracker.Ui
         private void buttonPlusIncome_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormTransaction transaction = new FormTransaction(this.user, this.appController);
-            transaction.FormClosed += (s, args) => this.Close();
-            transaction.ShowDialog();
+            FormNewIncome newIncome = new FormNewIncome(user, appController, 0);
+            newIncome.FormClosed += (s, args) => this.Close();
+            newIncome.ShowDialog();
         }
 
         private void buttonPlusExpense_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormTransaction transaction = new FormTransaction(this.user, this.appController);
-            transaction.FormClosed += (s, args) => this.Close();
-            transaction.ShowDialog();
+            FormNewExpense newExpense = new FormNewExpense(user, appController, 0);
+            newExpense.FormClosed += (s, args) => this.Close();
+            newExpense.ShowDialog();
         }
     }
 }

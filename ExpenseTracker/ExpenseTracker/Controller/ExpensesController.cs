@@ -23,5 +23,15 @@ namespace ExpenseTracker.Controller
             dt = expenses.getUserExpensesService(userId);
             return dt;
         }
+
+        public string addNewExpense(int userId, int catId, decimal amount, DateTime date, string disc)
+        {
+            bool result = expenses.addNewExpenseService(userId, catId, amount, date, disc);
+            if(result)
+            {
+                return "New expense added with sucess! \n Return to previouse menu to proceed.";
+            }
+            else return "There was an error adding the new expense!";
+        }
     }
 }
