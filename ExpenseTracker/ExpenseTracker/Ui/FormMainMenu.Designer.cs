@@ -55,6 +55,7 @@
             buttonTransactions.TabIndex = 1;
             buttonTransactions.Text = "Transactions";
             buttonTransactions.UseVisualStyleBackColor = true;
+            buttonTransactions.Click += buttonTransactions_Click;
             // 
             // buttonCategories
             // 
@@ -83,6 +84,7 @@
             buttonLogOut.TabIndex = 4;
             buttonLogOut.Text = "LogOut";
             buttonLogOut.UseVisualStyleBackColor = true;
+            buttonLogOut.Click += buttonLogOut_Click;
             // 
             // labelMenu
             // 

@@ -32,7 +32,6 @@ namespace ExpenseTracker.Ui
             FormMain formMain = new FormMain(this.appController);
             formMain.FormClosed += (s, args) => this.Close();
             formMain.ShowDialog();
-            //this.Close();
         }
 
         private void buttonCreate_Click(object sender, EventArgs e)

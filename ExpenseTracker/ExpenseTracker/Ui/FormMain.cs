@@ -42,7 +42,6 @@ namespace ExpenseTracker
                 FormMainMenu formMainMenu = new FormMainMenu(user, appController);
                 formMainMenu.FormClosed += (s, args) => this.Close();
                 formMainMenu.ShowDialog();
-                //this.Close();
             }
             else
             {
@@ -56,7 +55,6 @@ namespace ExpenseTracker
             FormCreateAccount createAccount = new FormCreateAccount(this.appController);
             createAccount.FormClosed += (s, args) => this.Close();
             createAccount.ShowDialog();
-            //this.Close();
         }
     }
 }

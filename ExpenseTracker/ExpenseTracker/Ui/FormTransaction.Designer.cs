@@ -75,6 +75,7 @@
             buttonBack.TabIndex = 3;
             buttonBack.Text = "Back";
             buttonBack.UseVisualStyleBackColor = true;
+            buttonBack.Click += buttonBack_Click;
             // 
             // labelMonth
             // 
@@ -93,6 +94,7 @@
             buttonLeft.TabIndex = 5;
             buttonLeft.Text = "<";
             buttonLeft.UseVisualStyleBackColor = true;
+            buttonLeft.Click += buttonLeft_Click;
             // 
             // buttonRight
             // 
@@ -102,6 +104,7 @@
             buttonRight.TabIndex = 6;
             buttonRight.Text = ">";
             buttonRight.UseVisualStyleBackColor = true;
+            buttonRight.Click += buttonRight_Click;
             // 
             // FormTransaction
             // 

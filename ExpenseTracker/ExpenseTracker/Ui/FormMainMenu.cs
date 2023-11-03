@@ -41,5 +41,21 @@ namespace ExpenseTracker
             formSpendings.FormClosed += (s, args) => this.Close();
             formSpendings.ShowDialog();
         }
+
+        private void buttonTransactions_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormTransaction formTransactions = new FormTransaction(User, this.appController);
+            formTransactions.FormClosed += (s, args) => this.Close();
+            formTransactions.ShowDialog();
+        }
+
+        private void buttonLogOut_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormMain formMain = new FormMain(this.appController);
+            formMain.FormClosed += (s, args) => this.Close();
+            formMain.ShowDialog();
+        }
     }
 }

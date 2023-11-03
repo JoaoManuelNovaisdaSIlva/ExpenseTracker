@@ -128,19 +128,24 @@ namespace ExpenseTracker.Ui
         {
             this.Hide();
             FormMainMenu mainMenu = new FormMainMenu(this.user, this.appController);
+            mainMenu.FormClosed += (s, args) => this.Close();
             mainMenu.ShowDialog();
-            this.Close();
         }
 
         private void buttonPlusIncome_Click(object sender, EventArgs e)
         {
             this.Hide();
             FormTransaction transaction = new FormTransaction(this.user, this.appController);
+            transaction.FormClosed += (s, args) => this.Close();
+            transaction.ShowDialog();
         }
 
         private void buttonPlusExpense_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            FormTransaction transaction = new FormTransaction(this.user, this.appController);
+            transaction.FormClosed += (s, args) => this.Close();
+            transaction.ShowDialog();
         }
     }
 }
