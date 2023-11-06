@@ -65,6 +65,7 @@
             buttonCategories.TabIndex = 2;
             buttonCategories.Text = "Categories";
             buttonCategories.UseVisualStyleBackColor = true;
+            buttonCategories.Click += buttonCategories_Click;
             // 
             // buttonSettings
             // 

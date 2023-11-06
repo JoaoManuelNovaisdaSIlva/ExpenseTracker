@@ -20,5 +20,17 @@ namespace ExpenseTracker.Business_Logic
             dataTable = categoriesDAL.getAllCategories();
             return dataTable;
         }
+
+        public bool addCategoryService(string categoryName)
+        {
+            CategoriesDAL categories = new CategoriesDAL();
+            return categories.addNewCategory(categoryName);
+        }
+
+        public bool removeCategoryService(string categoryName)
+        {
+            CategoriesDAL categories = new CategoriesDAL();
+            return categories.removeCategory(categoryName);
+        }
     }
 }

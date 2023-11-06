@@ -29,5 +29,42 @@ namespace ExpenseTracker.Data_Access_Layer
                 }
             }
         }
+
+        public bool addNewCategory(string categoryName)
+        {
+            using(SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                using(SqlCommand  cmd = new SqlCommand("SELECT COUNT(*) FROM Categories WHERE CategoryName = @CategoryName", sqlConnection))
+                {
+                    cmd.Parameters.AddWithValue("@CategoryName", categoryName);
+                    int existingCat = (int)cmd.ExecuteScalar();
+                    if (existingCat > 0) return false;
+                }
+
+                using(SqlCommand cmdInset = new SqlCommand("INSERT INTO Categories (CategoryName) VALUES (@CategoryName)", sqlConnection))
+                {
+                    cmdInset.Parameters.AddWithValue("@CategoryName", categoryName);
+
+                    int rowsAffected = cmdInset.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+            }
+        }
+
+        public bool removeCategory(string categoryName)
+        {
+            using(SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                using(SqlCommand cmd = new SqlCommand("DELETE FROM Categories WHERE CategoryName = @CategoryName", sqlConnection))
+                {
+                    cmd.Parameters.AddWithValue("@CategoryName", categoryName);
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+            }
+        }
     }
 }

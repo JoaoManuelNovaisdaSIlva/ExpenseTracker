@@ -18,26 +18,26 @@ namespace ExpenseTracker
     partial class FormMainMenu : Form
     {
         private AppController appController;
-        private UsersBL User;
+        private UsersBL user;
 
         public FormMainMenu(UsersBL user, AppController appController)
         {
             InitializeComponent();
 
-            this.User = user;
+            this.user = user;
             this.appController = appController;
         }
 
         public void FormMainMenu_Load(object sender, EventArgs e)
         {
-            string welcomeString = "Welcome " + this.User.getName();
+            string welcomeString = "Welcome " + this.user.getName();
             labelWelcome.Text = welcomeString;
         }
 
         private void buttonSpendings_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormSpendings formSpendings = new FormSpendings(User, this.appController);
+            FormSpendings formSpendings = new FormSpendings(user, this.appController);
             formSpendings.FormClosed += (s, args) => this.Close();
             formSpendings.ShowDialog();
         }
@@ -45,7 +45,7 @@ namespace ExpenseTracker
         private void buttonTransactions_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormTransaction formTransactions = new FormTransaction(User, this.appController);
+            FormTransaction formTransactions = new FormTransaction(user, this.appController);
             formTransactions.FormClosed += (s, args) => this.Close();
             formTransactions.ShowDialog();
         }
@@ -56,6 +56,14 @@ namespace ExpenseTracker
             FormMain formMain = new FormMain(this.appController);
             formMain.FormClosed += (s, args) => this.Close();
             formMain.ShowDialog();
+        }
+
+        private void buttonCategories_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormCategories formCategories = new FormCategories(this.appController, this.user);
+            formCategories.FormClosed += (s, args) => this.Close();
+            formCategories.ShowDialog();
         }
     }
 }

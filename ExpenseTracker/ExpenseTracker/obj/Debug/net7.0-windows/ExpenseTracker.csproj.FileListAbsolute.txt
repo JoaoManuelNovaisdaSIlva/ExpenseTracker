@@ -29,3 +29,5 @@ C:\Users\jmns2\Documents\GitHub\ExpenseTracker\ExpenseTracker\ExpenseTracker\obj
 C:\Users\jmns2\Documents\GitHub\ExpenseTracker\ExpenseTracker\ExpenseTracker\obj\Debug\net7.0-windows\ExpenseTracker.Ui.FormTransaction.resources
 C:\Users\jmns2\Documents\GitHub\ExpenseTracker\ExpenseTracker\ExpenseTracker\obj\Debug\net7.0-windows\ExpenseTracker.Ui.FormNewExpense.resources
 C:\Users\jmns2\Documents\GitHub\ExpenseTracker\ExpenseTracker\ExpenseTracker\obj\Debug\net7.0-windows\ExpenseTracker.Ui.FormNewIncome.resources
+C:\Users\jmns2\Documents\GitHub\ExpenseTracker\ExpenseTracker\ExpenseTracker\obj\Debug\net7.0-windows\ExpenseTracker.Ui.FormCategories.resources
+C:\Users\jmns2\Documents\GitHub\ExpenseTracker\ExpenseTracker\ExpenseTracker\obj\Debug\net7.0-windows\ExpenseTracker.Ui.FormNewCategory.resources

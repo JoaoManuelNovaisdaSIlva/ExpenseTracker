@@ -30,5 +30,25 @@ namespace ExpenseTracker.Controller
                 throw new MissingDataException("The data for the query: GetCategories is non existent!"); // Maybe if there are no categories users should add them
             }
         }
+
+        public string addNewCategory(string categoryName)
+        {
+            bool r = CategoriesBL.addCategoryService(categoryName);
+            if (r)
+            {
+                return "Category added with success! \n Press Back to procced";
+            }
+            else return "Category already exists! \n Try another one";
+        }
+
+        public string removeCategory(string categoryName)
+        {
+            bool r = CategoriesBL.removeCategoryService(categoryName);
+            if (r)
+            {
+                return "Category removed with success! \nPress Back to preocced";
+            }
+            else return "Error when removing category!";
+        }
     }
 }
