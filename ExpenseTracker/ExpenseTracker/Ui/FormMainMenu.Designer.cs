@@ -31,7 +31,6 @@
             buttonSpendings = new Button();
             buttonTransactions = new Button();
             buttonCategories = new Button();
-            buttonSettings = new Button();
             buttonLogOut = new Button();
             labelMenu = new Label();
             labelWelcome = new Label();
@@ -67,19 +66,9 @@
             buttonCategories.UseVisualStyleBackColor = true;
             buttonCategories.Click += buttonCategories_Click;
             // 
-            // buttonSettings
-            // 
-            buttonSettings.Location = new Point(350, 360);
-            buttonSettings.Name = "buttonSettings";
-            buttonSettings.RightToLeft = RightToLeft.No;
-            buttonSettings.Size = new Size(94, 29);
-            buttonSettings.TabIndex = 3;
-            buttonSettings.Text = "Settings";
-            buttonSettings.UseVisualStyleBackColor = true;
-            // 
             // buttonLogOut
             // 
-            buttonLogOut.Location = new Point(51, 471);
+            buttonLogOut.Location = new Point(350, 364);
             buttonLogOut.Name = "buttonLogOut";
             buttonLogOut.Size = new Size(94, 29);
             buttonLogOut.TabIndex = 4;
@@ -113,7 +102,6 @@
             Controls.Add(labelWelcome);
             Controls.Add(labelMenu);
             Controls.Add(buttonLogOut);
-            Controls.Add(buttonSettings);
             Controls.Add(buttonCategories);
             Controls.Add(buttonTransactions);
             Controls.Add(buttonSpendings);
@@ -129,7 +117,6 @@
         private Button buttonSpendings;
         private Button buttonTransactions;
         private Button buttonCategories;
-        private Button buttonSettings;
         private Button buttonLogOut;
         private Label labelMenu;
         private Label labelWelcome;

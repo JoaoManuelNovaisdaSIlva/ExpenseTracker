@@ -26,10 +26,10 @@ namespace ExpenseTracker.Ui
 
         private void FormCategories_Load(object sender, EventArgs e)
         {
-            UpdatePage(sender, e);
+            UpdatePage();
         }
 
-        public void UpdatePage(object sender, EventArgs e)
+        public void UpdatePage()
         {
             DataTable categoriesTable = appController.getCategoriesController().getCategories();
             if (categoriesTable == null && categoriesTable.Rows.Count <= 0)
@@ -59,6 +59,14 @@ namespace ExpenseTracker.Ui
             FormNewCategory newCategory = new FormNewCategory(appController, user);
             newCategory.FormClosed += (s, args) => this.Close();
             newCategory.ShowDialog();
+        }
+
+        private void buttonRemove_Click(object sender, EventArgs e)
+        {
+            string removing = listBox1.SelectedItem.ToString();
+            string msg = this.appController.getCategoriesController().removeCategory(removing);
+            MessageBox.Show(msg);
+            UpdatePage();
         }
     }
 }

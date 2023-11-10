@@ -32,6 +32,7 @@
             buttonBack = new Button();
             listBox1 = new ListBox();
             label1 = new Label();
+            buttonRemove = new Button();
             SuspendLayout();
             // 
             // buttonAddCategory
@@ -40,7 +41,7 @@
             buttonAddCategory.Name = "buttonAddCategory";
             buttonAddCategory.Size = new Size(104, 29);
             buttonAddCategory.TabIndex = 1;
-            buttonAddCategory.Text = "Category +/-";
+            buttonAddCategory.Text = "Category +";
             buttonAddCategory.UseVisualStyleBackColor = true;
             buttonAddCategory.Click += buttonAddCategory_Click;
             // 
@@ -72,11 +73,22 @@
             label1.TabIndex = 4;
             label1.Text = "Current Categories";
             // 
+            // buttonRemove
+            // 
+            buttonRemove.Location = new Point(289, 470);
+            buttonRemove.Name = "buttonRemove";
+            buttonRemove.Size = new Size(202, 29);
+            buttonRemove.TabIndex = 6;
+            buttonRemove.Text = "Remove Selected Category";
+            buttonRemove.UseVisualStyleBackColor = true;
+            buttonRemove.Click += buttonRemove_Click;
+            // 
             // FormCategories
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(782, 553);
+            Controls.Add(buttonRemove);
             Controls.Add(label1);
             Controls.Add(listBox1);
             Controls.Add(buttonBack);
@@ -93,5 +105,6 @@
         private Button buttonBack;
         private ListBox listBox1;
         private Label label1;
+        private Button buttonRemove;
     }
 }
