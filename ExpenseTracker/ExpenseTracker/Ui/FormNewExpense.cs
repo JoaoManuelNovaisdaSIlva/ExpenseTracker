@@ -64,7 +64,7 @@ namespace ExpenseTracker.Ui
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.Hide();
-            if (this.form == 1)
+            if (this.form == 0)
             {
                 FormSpendings spending = new FormSpendings(user, appController);
                 spending.FormClosed += (s, args) => this.Close();
