@@ -16,5 +16,7 @@ namespace ExpenseTracker.Business_Logic
     internal class RecurringExpensesBL : ExpensesBL
     {
         private Frequency frequency;
+
+        
     }
 }

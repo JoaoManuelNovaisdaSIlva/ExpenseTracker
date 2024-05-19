@@ -31,3 +31,5 @@ C:\Users\jmns2\Documents\GitHub\ExpenseTracker\ExpenseTracker\ExpenseTracker\obj
 C:\Users\jmns2\Documents\GitHub\ExpenseTracker\ExpenseTracker\ExpenseTracker\obj\Debug\net7.0-windows\ExpenseTracker.Ui.FormNewIncome.resources
 C:\Users\jmns2\Documents\GitHub\ExpenseTracker\ExpenseTracker\ExpenseTracker\obj\Debug\net7.0-windows\ExpenseTracker.Ui.FormCategories.resources
 C:\Users\jmns2\Documents\GitHub\ExpenseTracker\ExpenseTracker\ExpenseTracker\obj\Debug\net7.0-windows\ExpenseTracker.Ui.FormNewCategory.resources
+C:\Users\jmns2\Documents\GitHub\ExpenseTracker\ExpenseTracker\ExpenseTracker\obj\Debug\net7.0-windows\ExpenseTracker.Ui.FormRecurringDate.resources
+C:\Users\jmns2\Documents\GitHub\ExpenseTracker\ExpenseTracker\ExpenseTracker\obj\Debug\net7.0-windows\ExpenseTracker.Ui.FormRecurringTimes.resources

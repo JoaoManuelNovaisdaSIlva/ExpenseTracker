@@ -40,6 +40,7 @@ namespace ExpenseTracker.Ui
                 string category = row["CategoryName"].ToString();
                 comboBoxCategories.Items.Add(category);
             }
+            comboBoxRecurring.Items.Add("");
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -76,6 +77,30 @@ namespace ExpenseTracker.Ui
                 transaction.FormClosed += (s, args) => this.Close();
                 transaction.ShowDialog();
             }
+        }
+
+        private void comboBoxRecurring_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboBoxRecurring.SelectedIndex == 0)
+            {
+                using (FormRecurringDate recuringDate = new FormRecurringDate())
+                {
+                    recuringDate.ShowDialog();
+
+                    DateTime choice = recuringDate.selectedDate;
+                }
+            }
+            else if(comboBoxRecurring.SelectedIndex == 1)
+            {
+                using (FormRecurringTimes recurringTimes = new FormRecurringTimes())
+                {
+                    recurringTimes.ShowDialog();
+
+                    int times = recurringTimes.times;
+                }
+            }
+           
+            
         }
     }
 }
